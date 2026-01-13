@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latian1</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color:#222831;
+            --second-collor:#393E46;
+            --higlight:#00ADB5;
+            --text : #EEEEEE;
+        }
+     
+
+        * {
+            font-family: Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;
+        }
+
+        body{
+            background: var(--primary-color);
+        }
+        h2{
+            margin-top: 2.5em;
+           
+            text-shadow: #00ADB5 0px 0px 20px;
+        }
+    </style>
+
+</head>
+<body class="">
+    <header>
+        <h2 class="text-4xl font-bold text-center" id="atas">Tugas Bu <span class="" id="Dian">Dian</span></h2>
+    </header>
+    <main class="flex items-center justify-center mx-auto my-0 mt-[2em]">   
+        <div class="w-[28em] p-8 bg-[var(--text)] flex flex-col gap-4 justify-center rounded-xl">
+            <p class="font-bold underline">Masukan Angka :</p>
+            <input type="number" class="h-10 border-[var(--higlight)] border-1 rounded-lg shadow-[var(--higlight)] shadow-xl focus:text-shadow p-4" id="input">
+            <button class=" flex self-center justify-center  bg-[var(--primary-color)] text-[var(--text)] py-2 w-36 rounded-xl hover:bg-[var(--second-collor)] hover:shadow-2xl hover:shadow-[var(--primary-color)]" id="kirim">Kirim</button>
+            <h2 id="hasil" class="font-bold text-[var(--second-collor)]"></h2>
+        </div>
+    </main>
+    <script src="latihan1.js"></script>
+</body>
+</html>
