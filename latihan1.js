@@ -8,6 +8,7 @@ class Latian1 {
         return ubah
     }
 
+
     clearInput(){
         this.inputEl.value = ""
     }
@@ -33,7 +34,7 @@ class Latian1 {
             }
             console.log(`Angka ${n} adalah : ${hasil}`)
             return {
-                ankga : n,
+                angka : n,
                 status : hasil
             }
     }

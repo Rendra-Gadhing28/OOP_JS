@@ -11,15 +11,16 @@ class Latian3{
         const pengarang = this._pengarang
         const tahunTerbit = this._tahunTerbit
         let hargaBeli = this._hargaBeli
-        const keuntungan = 0.2 * hargaBeli
-        let hargaJual = hargaBeli - keuntungan
+        const diskon= 0.2 * hargaBeli
+        let hargaJual = hargaBeli - diskon
 
         console.log(`SELAMAT DATANG!!`)
         console.log(`Anda mengambil buku : ${judul}`)
         console.log(`Nama Pengarangnya : ${pengarang}`)
         console.log(`Diterbitkan pada : ${tahunTerbit}`)
         console.log(`Harga Beli : ${hargaBeli.toLocaleString('id-ID')}`)
-        console.log(`Total : ${hargaBeli.toLocaleString('id-ID')} - ${keuntungan.toLocaleString('id-ID')} = ${hargaJual.toLocaleString('id-ID')}`)
+        console.log(`Mendapatkan Diskon : ${diskon.toLocaleString('id-ID')}`)
+        console.log(`Total : ${hargaBeli.toLocaleString('id-ID')} - ${diskon.toLocaleString('id-ID')} = ${hargaJual.toLocaleString('id-ID')}`)
         console.log(`----Terimakasih----`)
     }
 }
