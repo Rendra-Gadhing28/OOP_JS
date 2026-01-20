@@ -40,14 +40,26 @@
             border-color: var(--highlight);
             box-shadow: 0 0 0 3px rgba(0, 173, 181, 0.1);
         }
+        nav{
+             box-shadow: 0 10px 20px var(--primary-color);
+        }
+           
+        
     </style>
 
 </head>
 <body>
-    <header class="mt-12 mb-12">
-        <h2 class="text-[var(--text)] text-6xl font-bold text-center" id="atas">Tugas Bu <span class="text-[var(--highlight)]" id="Dian">Dian</span></h2>
+    <header class="mb-16 h-auto">
+          <nav class="mb-8 w-full h-[4em] bg-[var(--highlight)] px-4 py-8 flex items-center justify-between rounded-lg">
+            <h1 class="text-xl font-bold">Rendra</h1>
+            <ul class="flex flex-row gap-4 ">
+                <li><a href="index2.html" class="hover:bg-black/60 rounded-lg p-2 hover:text-[var(--text)]">Latian2</a></li>
+                <li><a href="index3.html" class="hover:bg-black/60 rounded-lg p-2  hover:text-[var(--text)]">Latian3</a></li>
+            </ul>
+        </nav>
+        <h2 class="text-[var(--text)] text-6xl font-bold text-center" id="atas">Tugas Bu <span class="text-[var(--highlight)]" id="Dian">Dian</span></h2>  
     </header>
-    <main class="flex items-center justify-center mt-4 ">   
+    <main class="mt-8 flex items-center justify-center">   
         <div class="w-1/3 p-8 bg-white flex flex-col gap-2 justify-center rounded-xl shadow-[0 10px 40px rgba(0,173,181, 01)]">
             <p class="font-bold text-2xl">Masukan Angka :</p>
             <input type="number" class="w-full px-4 mt-4 mb-4 py-3 border-2 border-gray-200 rounded-lg text-gray-700 text-lg transition-all duration-200" id="input">
@@ -55,9 +67,66 @@
             <div class="">
                 <h2 id="hasil" class="bg-gray-50 text-center font-bold text-gray-700 flex items-center justify-center"></h2>
             </div>
-         
         </div>
     </main>
+    <script>
+        class Latian1 {
+    constructor(input){
+             this.inputEl = document.getElementById(input)
+    }
+
+    getValue(){
+        const ubah = parseInt(this.inputEl.value);
+        return ubah
+    }
+
+
+    clearInput(){
+        this.inputEl.value = ""
+    }
+
+        cekAngka() {
+            const n = this.getValue();
+            let hasil = "";
+
+            if(n > 0 && n % 2 === 0){
+                hasil = "Positif Genap"
+            }
+            else if(n < 0 && n % 2 === 0) {
+                hasil = "Negatif Genap"
+            }
+            else if(n > 0 && n % 2 !== 0){
+                hasil = "Positif Ganjil"
+            }
+            else if(n < 0 && n % 2 !== 0){
+                hasil = "Negatif Ganjil" 
+            }
+            else{
+                hasil = "angka belum benar"
+            }
+            console.log(`Angka ${n} adalah : ${hasil}`)
+            return {
+                angka : n,
+                status : hasil
+            }
+    }
+}
+
+const input = new Latian1('input');
+// input.cekAngka()
+const display = document.getElementById('hasil')
+const kirim = document.getElementById('kirim');
+
+kirim.addEventListener('click', ()=>{
+    const teksHasil = input.cekAngka()
+    const a = `Angka ${teksHasil.angka} adalah angka ${teksHasil.status}`
+
+    //menampilkan ke user
+    display.textContent = a
+    console.log(a)
+    input.clearInput()
+})
+    </script>
     <script src="latihan1.js"></script>
 </body>
 </html>
