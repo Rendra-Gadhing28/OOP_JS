@@ -6,39 +6,56 @@
     <title>Latian1</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
-        :root {
-            --primary-color:#222831;
-            --second-collor:#393E46;
-            --higlight:#00ADB5;
-            --text : #EEEEEE;
+     :root {
+            --primary-color: #222831;
+            --second-color: #393E46;
+            --highlight: #00ADB5;
+            --text: #EEEEEE;
         }
-     
 
-        * {
-            font-family: Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body{
-            background: var(--primary-color);
+            background: linear-gradient(135deg, #1a1f26 0%, #222831 100%);
+            min-height: 100vh;
         }
+
         h2{
-            margin-top: 2.5em;
-           
+            letter-spacing: 0.5px;
+        }
+
+        span{
             text-shadow: #00ADB5 0px 0px 20px;
+        }
+        button {
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+         input:focus {
+            outline: none;
+            border-color: var(--highlight);
+            box-shadow: 0 0 0 3px rgba(0, 173, 181, 0.1);
         }
     </style>
 
 </head>
-<body class="">
-    <header>
-        <h2 class="text-4xl font-bold text-center" id="atas">Tugas Bu <span class="" id="Dian">Dian</span></h2>
+<body>
+    <header class="mt-12 mb-12">
+        <h2 class="text-[var(--text)] text-6xl font-bold text-center" id="atas">Tugas Bu <span class="text-[var(--highlight)]" id="Dian">Dian</span></h2>
     </header>
-    <main class="flex items-center justify-center mx-auto my-0 mt-[2em]">   
-        <div class="w-[28em] p-8 bg-[var(--text)] flex flex-col gap-4 justify-center rounded-xl">
-            <p class="font-bold underline">Masukan Angka :</p>
-            <input type="number" class="h-10 border-[var(--higlight)] border-1 rounded-lg shadow-[var(--higlight)] shadow-xl focus:text-shadow p-4" id="input">
-            <button class=" flex self-center justify-center  bg-[var(--primary-color)] text-[var(--text)] py-2 w-36 rounded-xl hover:bg-[var(--second-collor)] hover:shadow-2xl hover:shadow-[var(--primary-color)]" id="kirim">Kirim</button>
-            <h2 id="hasil" class="font-bold text-[var(--second-collor)]"></h2>
+    <main class="flex items-center justify-center mt-4 ">   
+        <div class="w-1/3 p-8 bg-white flex flex-col gap-2 justify-center rounded-xl shadow-[0 10px 40px rgba(0,173,181, 01)]">
+            <p class="font-bold text-2xl">Masukan Angka :</p>
+            <input type="number" class="w-full px-4 mt-4 mb-4 py-3 border-2 border-gray-200 rounded-lg text-gray-700 text-lg transition-all duration-200" id="input">
+            <button class=" flex self-center justify-center font-bold text-lg  bg-[var(--highlight)] text-[var(--primary-color)] py-3 w-full rounded-xl hover:shadow-2xl hover:shadow-[var(--primary-color)]" id="kirim">Kirim</button>
+            <div class="">
+                <h2 id="hasil" class="bg-gray-50 text-center font-bold text-gray-700 flex items-center justify-center"></h2>
+            </div>
+         
         </div>
     </main>
     <script src="latihan1.js"></script>

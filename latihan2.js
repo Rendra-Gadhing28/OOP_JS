@@ -1,30 +1,69 @@
 class Latian2 {
-    constructor(nilaiAwal, Beda, Deret){
-        this.nilaiAwal = nilaiAwal
-        this.Beda = Beda
-        this.Deret = Deret
+    constructor(awal, beda,deret){
+        this.nilaiAwal = document.getElementById(awal)
+        this.beda = document.getElementById(beda)
+        this.deret = document.getElementById(deret)
     }
     hitungDeret(){
-        const a = this.nilaiAwal
-        let angka = a ;
-        const b = this.Beda
-        const n = this.Deret
+        const awal = parseInt(this.nilaiAwal.value)
+        let proses = awal;
+        const beda = parseInt(this.beda.value)
+        const deret = parseInt(this.deret.value)
+        
         let Index = 0
         let hasil = []
-        while(Index < n){
-            hasil.push(angka)
-            angka += b
+        while(Index < deret){
+            hasil.push(proses)
+            proses += beda
             Index++
         }
-        console.log(`Angka awal : ${a}`)
-        console.log(`Beda : ${b}`)
-        console.log(`Nilai n : ${n}`)
-        console.log(`Deret : ${hasil}`)
-        console.log("-------")
+        if(isNaN(awal) || isNaN(beda) || isNaN(deret)){
+            console.error(SyntaxError)
+        }
+        else{
+            console.log(`Angka awal : ${awal}`)
+            console.log(`Beda : ${beda}`)
+            console.log(`Nilai n : ${deret}`)
+            console.log(`Deret : ${hasil}`)
+            console.log("-------")
+            return {
+            angkaAwal : awal,
+            beda : beda,
+            nilaiN : deret,
+            deret : hasil,
+            }
+            
+        }
+    }
+    clearInput(){
+        this.nilaiAwal.value = ""
+        this.beda.value = ""
+        this.deret.value = ""
     }
 }
-const data1 = new Latian2(2, 5, 5)
-const data2 = new Latian2(5,2,4)
 
-data1.hitungDeret()
-data2.hitungDeret()
+    const angkaAwal = new Latian2('angkaAwal', 'pemBeda', 'nilaiN');
+    const display = document.getElementById('hasil')
+    const kirim = document.getElementById('kirim')
+
+    kirim.addEventListener('click', ()=>{
+        const teksHasil = angkaAwal.hitungDeret()
+        const {
+            angkaAwal : a, 
+            beda : b,
+            nilaiN : n,
+            deret : d } = teksHasil
+
+            document.getElementById('awal').textContent = a
+            document.getElementById('beda').textContent = b 
+            document.getElementById('n').textContent = n
+            document.getElementById('deret').textContent = d.join(', ')
+        // const hasil = Object.entries(awal)
+        // .map(([key,value])=> `${key} : ${value}`)
+        // .join('\n')
+        // Angka Awal : ${teksHasil.angkaAwal}
+        // Pembeda : ${teksHasil.beda}
+        // Nilai N : ${teksHasil.nilaiN}
+        // Deret : ${teksHasil.deret.join(', ')}`
+        angkaAwal.clearInput();
+    })

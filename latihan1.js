@@ -46,7 +46,7 @@ const kirim = document.getElementById('kirim');
 
 kirim.addEventListener('click', ()=>{
     const teksHasil = input.cekAngka()
-    const a = `Angka ${teksHasil.ankga} adalah angka ${teksHasil.status}`
+    const a = `Angka ${teksHasil.angka} adalah angka ${teksHasil.status}`
 
     //menampilkan ke user
     display.textContent = a
