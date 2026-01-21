@@ -1,31 +1,65 @@
 class Latian3{
-    constructor(judul, pengarang, tahunTerbit, hargaBeli){
-        this.judul = judul
-        this._pengarang = pengarang
-        this._tahunTerbit = tahunTerbit
-        this._hargaBeli = hargaBeli
+    constructor(inpJudul, inpPengarang, inpTerbit, inpHargaBeli){
+        this.judul = document.getElementById(inpJudul)
+        this._pengarang = document.getElementById(inpPengarang)
+        this._tahunTerbit = document.getElementById(inpTerbit)
+        this._hargaBeli = document.getElementById(inpHargaBeli)
     }
 
-    HitungHarga(){
-        const judul = this.judul
-        const pengarang = this._pengarang
-        const tahunTerbit = this._tahunTerbit
-        let hargaBeli = this._hargaBeli
-        const diskon= 0.2 * hargaBeli
-        let hargaJual = hargaBeli - diskon
+
+    
+
+    clearInput(){
+        this.judul.value = ''
+        this._pengarang.value = ''
+        this._tahunTerbit.value = ''
+        this._hargaBeli.value = ''
+    }
+
+    hitungHarga(){
+        try{
+        const judul = this.judul.value.trim()
+        const pengarang = this._pengarang.value.trim()
+        const tahun = this._tahunTerbit.value.trim()
+        const harga = parseInt(this._hargaBeli.value)
+        const diskon= 0.2 * harga
+        let hargaJual = harga - diskon
 
         console.log(`SELAMAT DATANG!!`)
         console.log(`Anda mengambil buku : ${judul}`)
         console.log(`Nama Pengarangnya : ${pengarang}`)
-        console.log(`Diterbitkan pada : ${tahunTerbit}`)
-        console.log(`Harga Beli : ${hargaBeli.toLocaleString('id-ID')}`)
+        console.log(`Diterbitkan pada : ${tahun}`)
+        console.log(`Harga Beli : ${harga.toLocaleString('id-ID')}`)
         console.log(`Mendapatkan Diskon : ${diskon.toLocaleString('id-ID')}`)
-        console.log(`Total : ${hargaBeli.toLocaleString('id-ID')} - ${diskon.toLocaleString('id-ID')} = ${hargaJual.toLocaleString('id-ID')}`)
+        console.log(`Total : ${harga.toLocaleString('id-ID')} - ${diskon.toLocaleString('id-ID')} = ${hargaJual.toLocaleString('id-ID')}`)
         console.log(`----Terimakasih----`)
+          return {
+            judul : judul,
+            penerbit : pengarang,
+            tahun : tahun,
+            harga : hargaJual
+        }
+        } catch{
+            
+        }
     }
 }
 
-const data1 = new Latian3("Kimetsu No Yaiba", "Rendra Gadhing", 2016, 100000)
-data1.HitungHarga()
-const data2 = new Latian3("Naruto Shipudden", "Rendra Gadhing", 2012, 245000)
-data2.HitungHarga()
+
+const input = new Latian3('inpJudul', 'inpPengarang', 'inpTerbit', 'inpHargaBeli')
+
+
+btn.addEventListener("click", ()=>{
+    const hasil = input.hitungHarga()
+    const {
+        judul : a,
+        penerbit : b,
+        tahun : c,
+        harga : d,
+    } = hasil;
+    document.getElementById('judul').textContent = a
+    document.getElementById('penerbit').textContent = b
+    document.getElementById('tahun').textContent = c
+    document.getElementById('harga').textContent = d.toLocaleString('id-ID')
+    input.clearInput();
+})

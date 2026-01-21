@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjualan Buku Bekas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root{
+            --primary-color: #EBF4DD;
+            --second-color: #5A7863;
+            --highlight:#90AB8B;
+            --text : #c9d2ba;
+        }
+        *{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        input:focus{
+            border: 2px solid var(--primary-color);
+            outline: 2px solid #5a6e78;
+            color: #5a6e78;
+        
+        }
+        @keyframes slideDown {
+            from{
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }   
+        }
+        body{
+            background: linear-gradient(135deg,#EBF4DD 0%, hsl(83, 28%, 80%) 100%) no-repeat ;
+            overflow-x: hidden;
+        }   
+
+        input{
+            width: 18em;
+            height: 2.5em;
+            background: var(--primary-color);
+        }
+        input:hover{
+            box-shadow: 0px 5px 10px #90AB8B;
+            transition: all 0.5 ease;
+        }
+        label{
+            color: var(--text);
+            font-size: medium;
+            padding: 2px;
+        }
+
+        button{
+            transition: all 0.3s ease;
+        }
+
+        button:hover{
+            box-shadow: 0px 5px 10px #90AB8B ;
+            transform: translateY(-2px);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="relative h-auto z-0" id="main-container">
+    <header class="w-full h-auto flex flex-col gap-2 justify-center items-center">
+            <nav class="mb-8 w-full text-[var(--primary-color)] h-[4em] bg-[var(--second-color)] px-4 py-8 flex items-center justify-between rounded-lg">
+            <h1 class="text-xl font-bold">Rendra</h1>
+             <ul class="flex flex-row gap-4 ">
+                <li><a href="index.html" class="hover:bg-black/60 rounded-lg p-2 hover:text-[var(--text)]">Latian1</a></li>
+                <li><a href="index2.html" class="hover:bg-black/60 rounded-lg p-2  hover:text-[var(--text)]">Latian2</a></li>
+                </ul>
+            </nav>
+            <h1 class=" z-10 text-6xl text-[var(--highlight)] font-bold text-center p-2 mt-2">Tugas Bu <span class="text-[var(--second-color)]">Dian</span></h1>
+            <span class="text-2xl text-[var(--second-color)] font-bold text-center" id="latian">Latian 2</span>
+        </header>
+    <main class=" relative bg-[var(--second-color)] gap-2 justify-center self-center mx-auto h-auto p-4 rounded-lg mt-8">
+        <h1 class="text-2xl font-bold text-center text-[var(--primary-color)]">Jual Buku</h1>
+        <div class="flex flex-col">
+        <label for="buku">
+            Buku </label>
+        <input class="p-4 rounded-lg" id="inpJudul" type="text" nama="buku" placeholder="Masukan Judul buku">
+        <label for="penerbit">
+            Penerbit
+        </label>
+        <input class="p-4 rounded-lg" id="inpPengarang" type="text" name="penerbit" placeholder="Masukan nama penerbit">
+        <label for="tahun">
+            Tahun
+        </label>
+        <input class="p-4 rounded-lg" id="inpTerbit" type="text" name="tahun" placeholder="Masukkan tahun terbit">
+        <label for="harga">
+            Harga Awal
+        </label><input class="p-4 rounded-lg" id="inpHargaBeli" name="harga" type="number" placeholder="Masukkan harga buku">
+        <button id="btn" class="max-w-md w-[10em] h-[3em] p-2 bg-[var(--primary-color)] rounded-xl mt-6">Jual</button>
+        </div>
+
+        <div class="p-2 mx-auto flex flex-col gap-4">
+            <label for="judul">Judul Buku : <span name="judul" class="" id="judul"></span></label>
+        
+        <label for="penerbit">Penerbit : <span id="penerbit"></span></label>
+        
+        <label for="tahun">Tahun Terbit : <span id="tahun"></span></label>
+        
+        <label for="harga">Harga Buku :  <span id="harga"></span></label>
+       
+        </div>
+    </main>
+    <footer>
+        <span class="text-gray-400 text-md">Production By Rendra</span>
+    </footer>
+    </div>
+    <script src="latihan3.js">
+        class Latian3{
+    constructor(inpJudul, inpPengarang, inpTerbit, inpHargaBeli){
+        this.judul = document.getElementById(inpJudul)
+        this._pengarang = document.getElementById(inpPengarang)
+        this._tahunTerbit = document.getElementById(inpTerbit)
+        this._hargaBeli = document.getElementById(inpHargaBeli)
+    }
+
+
+    
+
+    clearInput(){
+        this.judul.value = ''
+        this._pengarang.value = ''
+        this._tahunTerbit.value = ''
+        this._hargaBeli.value = ''
+    }
+
+    hitungHarga(){
+        try{
+        const judul = this.judul.value.trim()
+        const pengarang = this._pengarang.value.trim()
+        const tahun = this._tahunTerbit.value.trim()
+        const harga = parseInt(this._hargaBeli.value)
+        const diskon= 0.2 * harga
+        let hargaJual = harga - diskon
+
+        console.log(`SELAMAT DATANG!!`)
+        console.log(`Anda mengambil buku : ${judul}`)
+        console.log(`Nama Pengarangnya : ${pengarang}`)
+        console.log(`Diterbitkan pada : ${tahun}`)
+        console.log(`Harga Beli : ${harga.toLocaleString('id-ID')}`)
+        console.log(`Mendapatkan Diskon : ${diskon.toLocaleString('id-ID')}`)
+        console.log(`Total : ${harga.toLocaleString('id-ID')} - ${diskon.toLocaleString('id-ID')} = ${hargaJual.toLocaleString('id-ID')}`)
+        console.log(`----Terimakasih----`)
+          return {
+            judul : judul,
+            penerbit : pengarang,
+            tahun : tahun,
+            harga : hargaJual
+        }
+        } catch{
+            
+        }
+    }
+}
+
+
+const input = new Latian3('inpJudul', 'inpPengarang', 'inpTerbit', 'inpHargaBeli')
+
+
+btn.addEventListener("click", ()=>{
+    const hasil = input.hitungHarga()
+    const {
+        judul : a,
+        penerbit : b,
+        tahun : c,
+        harga : d,
+    } = hasil;
+    document.getElementById('judul').textContent = a
+    document.getElementById('penerbit').textContent = b
+    document.getElementById('tahun').textContent = c
+    document.getElementById('harga').textContent = d.toLocaleString('id-ID')
+    input.clearInput();
+})
+    </script>
+</body>
+</html>
