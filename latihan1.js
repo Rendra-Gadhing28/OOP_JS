@@ -29,8 +29,11 @@ class Latian1 {
             else if(n < 0 && n % 2 !== 0){
                 hasil = "Negatif Ganjil" 
             }
+            else if (n == 0 ){
+                hasil = "Netral"
+            }
             else{
-                hasil = "angka belum benar"
+                hasil = "Masukan angka yang benar"
             }
             console.log(`Angka ${n} adalah : ${hasil}`)
             return {

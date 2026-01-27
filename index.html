@@ -43,15 +43,46 @@
         nav{
              box-shadow: 0 10px 20px var(--primary-color);
         }
-           
-        
+           #header::after {
+            content: "";
+            animation: blink 5s infinite;
+           }
+
+           @keyframes blink {
+            25% { opacity: 1 ;
+                content: "Rendra";}
+
+            50% { 
+                opacity: 1;
+                content: "Gadhing";}
+
+            75% { 
+                opacity: 1;
+                content: "Pamungkas";
+                }
+           }
+
+           @keyframes fadeInUp{
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1 ;
+                transform: translateZ(45px);
+            }
+           }
+
+        main{
+            animation: fadeInUp 1s alternate;
+        }
     </style>
 
 </head>
 <body>
     <header class="mb-16 h-auto">
           <nav class="mb-8 w-full h-[4em] bg-[var(--highlight)] px-4 py-8 flex items-center justify-between rounded-lg">
-            <h1 class="text-xl font-bold">Rendra</h1>
+            <span class="text-xl font-bold" id="header"></span>
             <ul class="flex flex-row gap-4 ">
                 <li><a href="index2.html" class="hover:bg-black/60 rounded-lg p-2 hover:text-[var(--text)]">Latian2</a></li>
                 <li><a href="index3.html" class="hover:bg-black/60 rounded-lg p-2  hover:text-[var(--text)]">Latian3</a></li>
@@ -70,6 +101,7 @@
         </div>
     </main>
     <script>
+
         class Latian1 {
     constructor(input){
              this.inputEl = document.getElementById(input)
@@ -101,8 +133,11 @@
             else if(n < 0 && n % 2 !== 0){
                 hasil = "Negatif Ganjil" 
             }
+            else if (n == 0 ){
+                hasil = "Netral"
+            }
             else{
-                hasil = "angka belum benar"
+                hasil = "Masukan angka yang benar"
             }
             console.log(`Angka ${n} adalah : ${hasil}`)
             return {
@@ -126,6 +161,8 @@ kirim.addEventListener('click', ()=>{
     console.log(a)
     input.clearInput()
 })
+
+
     </script>
     <script src="latihan1.js"></script>
 </body>

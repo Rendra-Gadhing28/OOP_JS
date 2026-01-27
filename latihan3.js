@@ -21,11 +21,15 @@ class Latian3{
         const judul = this.judul.value.trim()
         const pengarang = this._pengarang.value.trim()
         const tahun = this._tahunTerbit.value.trim()
-        const harga = parseInt(this._hargaBeli.value)
+        let harga = parseInt(this._hargaBeli.value)
         const diskon= 0.2 * harga
         let hargaJual = harga - diskon
 
-        console.log(`SELAMAT DATANG!!`)
+            if(isNaN){
+                return console.error("error data belum lengkap")
+            }
+            else {
+                 console.log(`SELAMAT DATANG!!`)
         console.log(`Anda mengambil buku : ${judul}`)
         console.log(`Nama Pengarangnya : ${pengarang}`)
         console.log(`Diterbitkan pada : ${tahun}`)
@@ -33,6 +37,9 @@ class Latian3{
         console.log(`Mendapatkan Diskon : ${diskon.toLocaleString('id-ID')}`)
         console.log(`Total : ${harga.toLocaleString('id-ID')} - ${diskon.toLocaleString('id-ID')} = ${hargaJual.toLocaleString('id-ID')}`)
         console.log(`----Terimakasih----`)
+            }
+
+       
           return {
             judul : judul,
             penerbit : pengarang,
