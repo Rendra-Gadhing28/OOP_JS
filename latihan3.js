@@ -1,4 +1,4 @@
-class Latian3{
+  class Latian3{
     constructor(inpJudul, inpPengarang, inpTerbit, inpHargaBeli){
         this.judul = document.getElementById(inpJudul)
         this._pengarang = document.getElementById(inpPengarang)
@@ -26,7 +26,7 @@ class Latian3{
         let hargaJual = harga - diskon
 
             if(isNaN(harga) || judul === "" || pengarang === "" || tahun === ""){
-                 return console.error("error data belum lengkap")
+                 throw new Error("error data belum lengkap")
             }
             else {
             console.log(`SELAMAT DATANG!!`)
@@ -35,7 +35,7 @@ class Latian3{
             console.log(`Diterbitkan pada : ${tahun}`)
             console.log(`Harga Beli : ${harga.toLocaleString('id-ID')}`)
             console.log(`Mendapatkan Diskon : ${diskon.toLocaleString('id-ID')}`)
-            onsole.log(`Total : ${harga.toLocaleString('id-ID')} - ${diskon.toLocaleString('id-ID')} = ${hargaJual.toLocaleString('id-ID')}`)
+            console.log(`Total : ${harga.toLocaleString('id-ID')} - ${diskon.toLocaleString('id-ID')} = ${hargaJual.toLocaleString('id-ID')}`)
             console.log(`----Terimakasih----`)
             }
 
@@ -47,7 +47,7 @@ class Latian3{
             harga : hargaJual
         }
         } catch{
-            
+            console.error("error data belum lengkap")
         }
     }
 }
@@ -58,15 +58,16 @@ const input = new Latian3('inpJudul', 'inpPengarang', 'inpTerbit', 'inpHargaBeli
 
 btn.addEventListener("click", ()=>{
     const hasil = input.hitungHarga()
-    const {
-        judul : a,
-        penerbit : b,
-        tahun : c,
-        harga : d,
-    } = hasil;
-    document.getElementById('judul').textContent = a
-    document.getElementById('penerbit').textContent = b
-    document.getElementById('tahun').textContent = c
-    document.getElementById('harga').textContent = d.toLocaleString('id-ID')
-    input.clearInput();
+    if(hasil){
+        const { judul, penerbit, tahun, harga } = hasil
+
+        document.getElementById('judul').textContent = judul
+        document.getElementById('penerbit').textContent = penerbit
+        document.getElementById('tahun').textContent = tahun
+        document.getElementById('harga').textContent = harga.toLocaleString('id-ID')
+       input.clearInput();
+    }
+   
+
+ 
 })
