@@ -25,18 +25,18 @@ class Latian3{
         const diskon= 0.2 * harga
         let hargaJual = harga - diskon
 
-            if(isNaN){
-                return console.error("error data belum lengkap")
+            if(isNaN(harga) || judul === "" || pengarang === "" || tahun === ""){
+                 return console.error("error data belum lengkap")
             }
             else {
-                 console.log(`SELAMAT DATANG!!`)
-        console.log(`Anda mengambil buku : ${judul}`)
-        console.log(`Nama Pengarangnya : ${pengarang}`)
-        console.log(`Diterbitkan pada : ${tahun}`)
-        console.log(`Harga Beli : ${harga.toLocaleString('id-ID')}`)
-        console.log(`Mendapatkan Diskon : ${diskon.toLocaleString('id-ID')}`)
-        console.log(`Total : ${harga.toLocaleString('id-ID')} - ${diskon.toLocaleString('id-ID')} = ${hargaJual.toLocaleString('id-ID')}`)
-        console.log(`----Terimakasih----`)
+            console.log(`SELAMAT DATANG!!`)
+            console.log(`Anda mengambil buku : ${judul}`)
+            console.log(`Nama Pengarangnya : ${pengarang}`)
+            console.log(`Diterbitkan pada : ${tahun}`)
+            console.log(`Harga Beli : ${harga.toLocaleString('id-ID')}`)
+            console.log(`Mendapatkan Diskon : ${diskon.toLocaleString('id-ID')}`)
+            onsole.log(`Total : ${harga.toLocaleString('id-ID')} - ${diskon.toLocaleString('id-ID')} = ${hargaJual.toLocaleString('id-ID')}`)
+            console.log(`----Terimakasih----`)
             }
 
        
